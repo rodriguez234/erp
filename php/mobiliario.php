@@ -10,4 +10,10 @@ class Mobiliario extends Conexion{
 		$this->sentencia = "SELECT * FROM mobiliario";
 		return $this->obtenerSentencia();
 	}
+
+	public function eliminar($id){
+		$this->sentencia = "DELETE FROM mobiliario WHERE IDmobiliario=$id";
+		$this->ejecutarSentencia();
+	}
 }
+?>

@@ -10,4 +10,11 @@ class Proveedor extends Conexion{
 		$this->sentencia = "SELECT * FROM proveedor";
 		return $this->obtenerSentencia();
 	}
+
+	public function eliminar($id){
+		$this->sentencia = "DELETE FROM proveedor WHERE IDproveedor=$id";
+		$this->ejecutarSentencia();
+	}
+
 }
+?>

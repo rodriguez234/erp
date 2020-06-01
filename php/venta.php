@@ -10,4 +10,12 @@ class Venta extends conexion{
 		$this->sentencia = "SELECT * FROM venta";
 		return $this->obtenerSentencia();
 	}
+	
+	
+	public function eliminar($id){
+		$this->sentencia = "DELETE FROM venta WHERE IDVenta=$id";
+		$this->ejecutarSentencia();
+	}
+
 }
+?>

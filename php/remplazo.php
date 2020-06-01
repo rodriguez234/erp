@@ -10,4 +10,11 @@ class Remplazo extends Conexion{
 		$this->sentencia = "SELECT * FROM remplazo";
 		return $this->obtenerSentencia();
 	}
+
+	public function eliminar($id){
+		$this->sentencia = "DELETE FROM remplazo WHERE IDremplazo=$id";
+		$this->ejecutarSentencia();
+	}
+
 }
+?>
