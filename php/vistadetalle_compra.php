@@ -17,7 +17,6 @@
 			$IDcompra= $_POST["IDcompra"];
 			$cantidad = $_POST["cantidad"];
 			
-			
 			$obj->alta($IDmateriaprima,$IDcompra,$cantidad);
 			echo "<h2>Usuario agregado</h2>";
 		}
@@ -35,15 +34,21 @@
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
 				echo "<tr>";
-				echo "<td>".$fila["nombre"]."</td>";
-                echo "<td>".$fila["direccion"]."</td>";
-                echo "<td>".$fila["telefono"]."</td>";
-                
+				echo "<td>".$fila["IDmateriaprima"]."</td>";
+                echo "<td>".$fila["IDcompra"]."</td>";
+                echo "<td>".$fila["cantidad"]."</td>";
+			
+				echo "</tr>";
 			}
 		 ?>
 	</table>
 
 </section>
+
+
+
+
+
 
 
 

@@ -7,7 +7,7 @@ class jornada extends conexion
 	
 	public function alta($hrs_trabajadas,$dias_trabajados,$pago_hora,$horas_extra,$bonos,$IDempleado)
 	{
-		$this->sentencia = "INSERT INTO jornada VALUES(null, '$hrs_trabajadas','$dias_trabajados','$pago_hora','$horas_extra','$bonos','IDempleado')";
+		$this->sentencia = "INSERT INTO jornada VALUES(null, '$hrs_trabajadas','$dias_trabajados','$pago_hora','$horas_extra','$bonos','$IDempleado')";
 		$this->ejecutarSentencia();
 
 	}

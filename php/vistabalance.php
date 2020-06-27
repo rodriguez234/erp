@@ -5,9 +5,9 @@
 <section id="principal">
 
 	<form action="" method="post">
-		Nombre: <input type="date" name="fechainicio"> <br>
-		Password: <input type="date" name="fechafin"> <br>
-		Password: <input type="int" name="total"> <br>
+		fecha de inicio : <input type="date" name="fechainicio"> <br>
+		fecha final: <input type="date" name="fechafin"> <br>
+		total: <input type="int" name="total"> <br>
 		
 		<input type="submit" value="Agregar Usuario" name="alta">
 	</form>
@@ -16,7 +16,6 @@
 			$fechainicio = $_POST["fechainicio"];
 			$fechafin = $_POST["fechafin"];
 			$total = $_POST["total"];
-			$tipo = $_POST["tipo"];
 			
 			$obj->alta($fechainicio,$fechafin,$total);
 			echo "<h2>Usuario agregado</h2>";
@@ -29,8 +28,7 @@
 		<tr>
 			<th>fechainicio</th>
 			<th>fechafin</th>
-		
-			<th>total</th>
+		    <th>total</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){

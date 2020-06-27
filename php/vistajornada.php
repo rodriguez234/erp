@@ -10,7 +10,7 @@
 		pago_hora: <input type="int" name="pago_hora"> <br>
 		horas_extra: <input type="int" name="horas_extra"> <br>
 	    bonos: <input type="int" name="bonos"> <br>
-		
+		IDempleado: <input type="int" name="IDempleado"> <br>
 		<input type="submit" value="Agregar Usuario" name="alta">
 	</form>
 	<?php 
@@ -20,8 +20,9 @@
 			$pago_hora = $_POST["pago_hora"];
 			$horas_extra = $_POST["horas_extra"];
 			$bonos = $_POST["bonos"];
+			$IDempleado = $_POST["IDempleado"];
 			
-			$obj->alta($hrs_trabajadas,$dias_trabajados,$pago_hora,$horas_extra,$bonos);
+			$obj->alta($hrs_trabajadas,$dias_trabajados,$pago_hora,$horas_extra,$bonos,$IDempleado);
 			echo "<h2>Compra agregada</h2>";
 		}
 
@@ -35,6 +36,7 @@
 			<th>pago_hora</th>
 		    <th>horas_extra</th>
 		    <th>bonos</th>
+		    <th>IDempleado</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -44,6 +46,8 @@
 				echo "<td>".$fila["pago_hora"]."</td>";
 				echo "<td>".$fila["horas_extra"]."</td>";
 			    echo "<td>".$fila["bonos"]."</td>";
+			    echo "<td>".$fila["IDempleado"]."</td>";
+
 
 			}	
 		 ?>

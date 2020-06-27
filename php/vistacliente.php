@@ -13,7 +13,7 @@
 		apepaterno: <input type="text" name="apepaterno"> <br>
 		sexo: <input type="text" name="sexo"> <br>
 		fenacimiento: <input type="date" name="fenacimiento"> <br>
-		
+		</select> <br>
 		<input type="submit" value="Agregar Usuario" name="alta">
 	</form>
 	<?php 
@@ -56,6 +56,7 @@
                 echo "<td>".$fila["apepaterno"]."</td>";
                 echo "<td>".$fila["sexo"]."</td>";
                 echo "<td>".$fila["fenacimiento"]."</td>";
+                echo "</tr>";
 			}
 		 ?>
 	</table>

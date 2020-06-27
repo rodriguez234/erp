@@ -7,7 +7,7 @@ class devoluciones extends conexion
 	
 	public function alta($fecha,$cantidad,$descripcion,$IDproducto)
 	{
-		$this->sentencia = "INSERT INTO devoluciones VALUES(null, '$fecha','$cantidad','$descripcion',IDproducto)";
+		$this->sentencia = "INSERT INTO devoluciones VALUES(null,'$fecha','$cantidad','$descripcion',IDproducto)";
 		$this->ejecutarSentencia();
 
 	}

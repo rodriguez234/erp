@@ -1,3 +1,4 @@
+
 <?php
 
 require_once("conexion.php");
@@ -17,9 +18,10 @@ class evaluacion extends conexion
 }
 public function eliminar($id){
 		$this->sentencia = "DELETE FROM evaluacion WHERE
-		IDevaluacion=$id";
+		IDevaluación=$id";
 		$this->ejecutarSentencia();
 
 	}
 }
 ?>
+

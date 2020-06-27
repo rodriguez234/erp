@@ -24,7 +24,7 @@
 			<a href="?sec=mob"><li>Mobiliario</li></a>
 			<a href="?sec=pag"><li>Pago</li></a>
 			<a href="?sec=ped"><li>Pedido</li></a>
-			<a href="?sec=ven"><li>Permisos</li></a>
+			<a href="?sec=per"><li>Permisos</li></a>
 			<a href="?sec=pro"><li>Producto</li></a>
 			<a href="?sec=prov"><li>Proveedor</li></a>
 			<a href="?sec=proy"><li>Proyecto</li></a>
@@ -39,7 +39,7 @@
 		$sec = $_GET["sec"];
 		switch ($sec) {
 				case 'act':
-					require_once("php/vistaactividad.php");
+					require_once("php/vistaActividad.php");
 				    break;
 				case 'asi':
 					require_once("php/vistaasistencia.php");
@@ -52,6 +52,9 @@
 				    break;
 				case 'com':
 					require_once("php/vistacompra.php");
+				    break;
+				case 'gcom':
+					require_once("php/graficaCompra.php");
 				    break;
 				case 'det':
 					require_once("php/vistadetalle_compra.php");
@@ -74,6 +77,9 @@
 			    case 'mat':
 					require_once("php/vistaMateriaP.php");
 				    break;
+				case 'gmat':
+					require_once("php/graficaMateriaPrima.php");
+					break;
 				case 'mob':
 					require_once("php/vistaMobiliario.php");
 				    break;
@@ -89,6 +95,9 @@
 				case 'pro':
 					require_once("php/vistaProducto.php");
 				    break; 
+                case 'gpro':
+					require_once("php/graficaProducto.php");
+					break;
 				case 'prov':
 					require_once("php/vistaProveedor.php");
 				    break;  
@@ -103,6 +112,9 @@
 				    break;
 				case 'ven':
 					require_once("php/vistaVenta.php");
+				    break;
+				case 'gven':
+					require_once("php/graficaVenta.php");
 				    break;
 
 	}

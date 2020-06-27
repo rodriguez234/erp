@@ -1,6 +1,7 @@
+
 <?php 
-	require_once("cliente.php");
-	$obj = new cliente();
+	require_once("empleado.php");
+	$obj = new empleado();
  ?>
 <section id="principal">
 
@@ -14,12 +15,12 @@
 		sexo: <input type="text" name="sexo"> <br>
 		fechadeingreso: <input type="date" name="fechadeingreso"> <br>
 	    cargo: <input type="text" name="cargo"> <br>
-		salario: <input type="date" name="salario"> <br>
+		salario: <input type="text" name="salario"> <br>
 		estadocivil: <input type="text" name="estadocivil"> <br>
-		nss: <input type="date" name="nss"> <br>
+		nss: <input type="text" name="nss"> <br>
 		
-		
-		<input type="submit" value="Agregar Usuario" name="alta">
+			</select> <br>
+		<input type="submit" value="Agregar Empleado" name="alta">
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -36,7 +37,7 @@
 			$estadocivil = $_POST["estadocivil"];
 			$nss = $_POST["nss"];
 			$obj->alta($nombre,$appaterno,$apmaterno,$correo,$rfc,$telefono,$sexo,$fechadeingreso,$cargo,$salario,$estadocivil,$nss);
-			echo "<h2>Usuario agregado</h2>";
+			echo "<h2>Empleado agregado</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -60,6 +61,18 @@
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
 				echo "<tr>";
+				echo "<td>".$fila["nombre"]."</td>";
+                echo "<td>".$fila["appaterno"]."</td>";
+                echo "<td>".$fila["apmaterno"]."</td>";
+                echo "<td>".$fila["correo"]."</td>";
+                echo "<td>".$fila["rfc"]."</td>";
+                echo "<td>".$fila["telefono"]."</td>";
+                echo "<td>".$fila["sexo"]."</td>";
+                echo "<td>".$fila["fechadeingreso"]."</td>";
+                echo "<td>".$fila["cargo"]."</td>";
+                echo "<td>".$fila["salario"]."</td>";
+                echo "<td>".$fila["estadocivil"]."</td>";
+                echo "<td>".$fila["nss"]."</td>";
 				
 			}
 		 ?>

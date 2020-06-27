@@ -8,12 +8,14 @@
 		Fecha: <input type="date" name="Fecha"> <br>
 		IDempleado: <input type="text" name="IDempleado"> <br>
 		Hora: <input type="time" name="Hora"> <br>
-		Tipo:
-		<select name="tipo">
-			<option value="1">Administrador</option>
-			<option value="2">Empleado</option>
 		</select> <br>
 		<input type="submit" value="Agregar asistencia" name="alta">
+		<br>
+		<?php 
+            if(isset($_GET["e"])){
+     	echo "<h2> Usuario eliminado</h2>";
+     }
+		?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -21,7 +23,7 @@
 			$IDempleado = $_POST["IDempleado"];
 			$Hora = $_POST["Hora"];
 			
-			$obj->alta($Fecha,$IDempleado,$Hora,$tipo);
+			$obj->alta($Fecha,$IDempleado,$Hora);
 			echo "<h2>Asistencia agregada</h2>";
 		}
 
@@ -33,7 +35,9 @@
 			<th>Fecha</th>
 			<th>IDempleado</th>
 			<th>Hora</th>
-			<th>Tipo</th>
+			<th>eliminar</th>
+			
+			
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -42,16 +46,29 @@
 				echo "<td>".$fila["IDempleado"]."</td>";
 				echo "<td>".$fila["Hora"]."</td>";
 
-				if($fila["Tipo"]==1){
-					echo "<td>Administrador</td>";
-				}else{
-					echo "<td>Empleado</td>";
-				}
+			
+		 ?>
+		 <td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDasistencia']; ?>" name="id"> 
+					<input type="submit" value="eliminar" name="eliminar">
+					
+				</form>
+                </td>
+				<?php
 				echo "</tr>";
 			}
 		 ?>
 	</table>
-
+	<?php
+     
+     if(isset($_POST["eliminar"])){
+     	$id = $_POST["id"];
+     	$obj->eliminar($id);
+     	header("Location: ?sec=asis&e=1");
+     }
+     
+	?>
 </section>
 
 
