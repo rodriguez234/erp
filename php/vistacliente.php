@@ -3,7 +3,9 @@
 	$obj = new cliente();
  ?>
 <section id="principal">
-
+<div>
+		<a href="?sec=rcli"><input type="button" value="Generar Reporte"></a>
+	</div>
 	<form action="" method="post">
 		nombre: <input type="text" name="nombre"> <br>
 		direccion: <input type="text" name="direccion"> <br>

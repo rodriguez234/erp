@@ -4,7 +4,9 @@
 	$obj = new empleado();
  ?>
 <section id="principal">
-
+<div>
+		<a href="?sec=remp"><input type="button" value="Generar Reporte"></a>
+	</div>
 	<form action="" method="post">
 		nombre: <input type="text" name="nombre"> <br>
 		appaterno: <input type="text" name="appaterno"> <br>

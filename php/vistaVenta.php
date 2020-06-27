@@ -6,6 +6,9 @@
 <div>
 		<a href="?sec=gven"><input type="button" value="Generar Gráfica"></a>
 	</div>
+	<div>
+		<a href="?sec=rven"><input type="button" value="Generar Reporte"></a>
+	</div>
 	<form action="" method="post">
 		IDVenta <input type="text" name="IDVenta"> <br>
 		Fecha <input type="text" name="fecha"> <br>

@@ -3,7 +3,9 @@
 	$obj = new asistencia();
  ?>
 <section id="principal">
-
+<div>
+		<a href="?sec=rasi"><input type="button" value="Generar Reporte"></a>
+	</div>
 	<form action="" method="post">
 		Fecha: <input type="date" name="Fecha"> <br>
 		IDempleado: <input type="text" name="IDempleado"> <br>

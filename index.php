@@ -44,18 +44,27 @@
 				case 'asi':
 					require_once("php/vistaasistencia.php");
 				    break;
+				case 'rasi':
+					header("Location: php/reporteAsistencia.php");
+					break;
 				case 'bal':
 					require_once("php/vistabalance.php");
 				    break;
 				case 'cli':
 					require_once("php/vistacliente.php");
 				    break;
+				case 'rcli':
+					header("Location: php/reporteCliente.php");
+					break;
 				case 'com':
 					require_once("php/vistacompra.php");
 				    break;
 				case 'gcom':
 					require_once("php/graficaCompra.php");
 				    break;
+			    case 'rcom':
+					header("Location: php/reporteCompra.php");
+					break;
 				case 'det':
 					require_once("php/vistadetalle_compra.php");
 				    break;
@@ -65,6 +74,9 @@
 				case 'emp':
 					require_once("php/vistaempleado.php");
 				    break;
+				 case 'remp':
+					header("Location: php/reporteEmpleado.php");
+					break;
 				case 'eva':
 					require_once("php/vistaevaluacion.php");
 				    break;
@@ -80,9 +92,15 @@
 				case 'gmat':
 					require_once("php/graficaMateriaPrima.php");
 					break;
+		        case 'rmat':
+					header("Location: php/reporteMateriaprima.php");
+					break;
 				case 'mob':
 					require_once("php/vistaMobiliario.php");
 				    break;
+				case 'rmob':
+					header("Location: php/reporteMobiliario.php");
+					break;
 				case 'pag':
 					require_once("php/vistaPago.php");
 				    break;
@@ -98,9 +116,15 @@
                 case 'gpro':
 					require_once("php/graficaProducto.php");
 					break;
+			    case 'rpro':
+					header("Location: php/reporteProducto.php");
+					break;
 				case 'prov':
 					require_once("php/vistaProveedor.php");
-				    break;  
+				    break; 
+				case 'rprov':
+					header("Location: php/reporteProveedor.php");
+					break; 
 				case 'proy':
 					require_once("php/vistaProyecto.php");
 				    break;  
@@ -116,6 +140,9 @@
 				case 'gven':
 					require_once("php/graficaVenta.php");
 				    break;
+				case 'rven':
+					header("Location: php/reporteVenta.php");
+					break;
 
 	}
 }
