@@ -1,47 +1,75 @@
 <?php 
-	require_once("actividad.php"); //nombre del archivo donde esta el inserta,consultar y eliminar
-	$obj = new Actividad(); //nombre del archivo con la primer letra en mayuscula
-
-	// Ahora abajo es solo el nombre del campo de la tabla (palabra amarilla) y la otra palabra es la misma pero con la primer letra en Mayuscula (palabra blanca), osea son las q estan en la linea 5 del archivo de actividad.php : $this->sentencia = "INSERT INTO actividad VALUES(null,'$registro',$IDusuario,'$movimiento_act','$movimiento_tabla')";
-	 ?>
+	require_once("actividad.php");
+	$obj = new Actividad();
+ ?>
 <section id="principal">
+
 	<form action="" method="post">
-		Registro <input type="text" name="registro"> <br> 
-		IDusuario <input type="text" name="IDusuario"> <br>
-		Movimiento_act <input type="text" name="movimiento_act"> <br>
-		Movimiento_tabla <input type="text" name="movimiento_tabla"> <br>
-		</select> <br>
-		<input type="submit" value="Agregar Datos" name="alta">
-	</form>
-	<?php 
-		if(isset($_POST["alta"])){ 
-		$registro = $_POST["registro"]; //estos son los mismos que estan en letra amarilla de arriba (los de la tabla en la BD)
-		$IDusuario = $_POST["IDusuario"]; //tanto la palabra en blanco como en amarillo son la misma
-		$movimiento_act = $_POST["movimiento_act"];
-		$movimiento_tabla = $_POST["movimiento_tabla"];
-$obj->alta($registro,$IDusuario,$movimiento_act,$movimiento_tabla); //aqui pones eso mismo de la letra amarilla pero con$
-			echo "<h2>Datos Agregados</h2>"; 
+		Registro: <input type="text" name="registro"> <br>	
+		Lista de Usuarios:<?php
+		$obj->obtenerUsuario();
+		?>
+		<br>	
+		Movimiento Actual: <input type="text" name="movimiento_actual"> <br>
+		Movimiento Tabla: <input type="text" name="movimiento_tabla"> <br>
+		<input type="submit" value="Agregar Actividad" name="alta"><br>
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Actividad eliminada</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Actividad agregada</h2>";
 		}
 
-		$resultado = $obj->consulta(); //Ahora aqui abajo haremos la tabla donde se mostrarán los datos, son las mismas palabras que estan hasta arriba en blanco (Registro,IDusuario,Movimiento_act,Movimiento_tabla)
+		 ?>
+	</form>
+	<?php 
+		if(isset($_POST["alta"])){
+			$registro = $_POST["registro"];			
+			$usuario = $_POST["usuario"];
+			$movimiento_actual = $_POST["movimiento_actual"];	
+			$movimiento_tabla = $_POST["movimiento_tabla"];	
+
+			$obj->alta($registro,$usuario,$movimiento_actual,$movimiento_tabla);
+			echo "<h2>Actividad agregada</h2>";
+		}
+
+		$resultado = $obj->consulta();
 	 ?>
+
 	<table>
 		<tr>
-			<th>Registro</th> 
-			<th>IDusuario</th>
-			<th>Movimiento_act</th>
-			<th>Movimiento_tabla</th>
-			</tr>
+			<th>Registro</th>
+			<th>Usuario</th>
+			<th>Mov. Act</th>
+			<th>Mov. Tabla</th>
+			<th>Eliminar</th>
+		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
-				echo "<tr>"; //Ahora aqui vas a poner las letras amarillas
-				echo "<td>".$fila["registro"]."</td>"; //igual son las que estan en letra amarilla de arriba osea los de la BD
-				echo "<td>".$fila["IDusuario"]."</td>";// son las mismas que han estado en amarillo
+				echo "<tr>";
+				echo "<td>".$fila["registro"]."</td>";
+				echo "<td>".$fila["nombre"]."</td>";
 				echo "<td>".$fila["movimiento_act"]."</td>";
 				echo "<td>".$fila["movimiento_tabla"]."</td>";
+				?>
+				<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDactividad']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>									
+				<?php
 				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=act&e=1");
+		}
 
+	 ?>
 </section>

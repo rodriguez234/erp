@@ -7,20 +7,20 @@
 		<a href="?sec=rprov"><input type="button" value="Generar Reporte"></a>
 	</div>
 	<form action="" method="post">
-		Nombre <input type="text" name="nombre"> <br>
-		Telefono <input type="text" name="telefono"> <br>
-		Direccion <input type="text" name="direccion"> <br>
-		Correo <input type="text" name="correo"> <br>
-		Rfc <input type="text" name="rfc"> <br>
+		Nombre: <input type="text" name="nombre"> <br>
+		Telefono: <input type="text" name="telefono"> <br>
+		Direccion: <input type="text" name="direccion"> <br>
+		Correo: <input type="text" name="correo"> <br>
+		RFC: <input type="text" name="rfc"> <br>
 		</select> <br>
-		<input type="submit" value="Agregar Datos" name="alta">
+		<input type="submit" value="Agregar Proveedor" name="alta">
 		<br>
 		<?php 
 		if(isset($_GET["e"])){
-			echo "<h2>Datos eliminados</h2>";
+			echo "<h2>Proveedor eliminados</h2>";
 		}
 		if(isset($_GET["i"])){
-			echo "<h2>Datos Agregados</h2>";
+			echo "<h2>Proveedor Agregados</h2>";
 		}
 
 		 ?>

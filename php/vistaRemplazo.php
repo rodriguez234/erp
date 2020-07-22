@@ -5,19 +5,19 @@
 <section id="principal">
 
 	<form action="" method="post">
-		IDmobiliario <input type="text" name="IDmobiliario"> <br>
-		Fecha <input type="text" name="fecha"> <br>
-		Costo <input type="text" name="costo"> <br>
-		Descripcion <input type="text" name="descripcion"> <br>
+		Mobiliario: <input type="text" name="IDmobiliario"> <br>
+		Fecha: <input type="text" name="fecha"> <br>
+		Costo: <input type="text" name="costo"> <br>
+		Descripcion: <input type="text" name="descripcion"> <br>
 		</select> <br>
-		<input type="submit" value="Agregar Datos" name="alta">
+		<input type="submit" value="Agregar Remplazo" name="alta">
 		<br>
 		<?php 
 		if(isset($_GET["e"])){
-			echo "<h2>Datos eliminados</h2>";
+			echo "<h2>Remplazo eliminado</h2>";
 		}
 		if(isset($_GET["i"])){
-			echo "<h2>Datos Agregados</h2>";
+			echo "<h2>Remplazo Agregado</h2>";
 		}
 
 		 ?>
@@ -38,7 +38,7 @@
 
 	<table>
 		<tr>
-			<th>IDmobiliario</th>
+			<th>Mobiliario</th>
 			<th>Fecha</th>
 			<th>Costo</th>
 			<th>Descripcion</th>

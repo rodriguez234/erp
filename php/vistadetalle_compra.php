@@ -7,9 +7,19 @@
 	<form action="" method="post">
 		IDmateriaprima: <input type="text" name="IDmateriaprima"> <br>
 		IDcompra: <input type="text" name="IDcompra"> <br>
-		cantidad: <input type="text" name="cantidad"> <br>
+		Cantidad: <input type="text" name="cantidad"> <br>
 		
-		<input type="submit" value="Agregar Usuario" name="alta">
+		<input type="submit" value="Agregar Detalle" name="alta">
+		<br>
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Detalle eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Detalle agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -18,7 +28,7 @@
 			$cantidad = $_POST["cantidad"];
 			
 			$obj->alta($IDmateriaprima,$IDcompra,$cantidad);
-			echo "<h2>Usuario agregado</h2>";
+			echo "<h2>Detalle agregado</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -28,7 +38,8 @@
 		<tr>
 			<th>IDmateriaprima</th>
 			<th>IDcompra</th>
-			<th>cantidad</th>
+			<th>Cantidad</th>
+			<th>Eliminar</th>
 			
 		</tr>
 		<?php 
@@ -39,10 +50,29 @@
                 echo "<td>".$fila["cantidad"]."</td>";
 			
 				echo "</tr>";
+			
+			?>
+		        <td>
+		        	
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDdetallecompra']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
 			}
 		 ?>
+		 
 	</table>
+<?php 
+      if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=det&e=1");
+		}
 
+	 ?>
 </section>
 
 

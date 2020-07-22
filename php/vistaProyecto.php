@@ -5,21 +5,21 @@
 <section id="principal">
 
 	<form action="" method="post">
-		Nombre_pro <input type="text" name="nombre_pro"> <br>
-		Tipo_pro <input type="text" name="tipo_pro"> <br>
-		IDempleado <input type="text" name="IDempleado"> <br>
-		Fecha_in <input type="text" name="fecha_in"> <br>
-		Fecha_fin <input type="text" name="fecha_fin"> <br>
-		Descripcion <input type="text" name="descripcion"> <br>
+		Nombre del Proyecto: <input type="text" name="nombre_pro"> <br>
+		Tipo de Proyecto: <input type="text" name="tipo_pro"> <br>
+		Empleado <input type="text" name="IDempleado"> <br>
+		Fecha de Inicio: <input type="text" name="fecha_in"> <br>
+		Fecha Final: <input type="text" name="fecha_fin"> <br>
+		Descripcion: <input type="text" name="descripcion"> <br>
 		</select> <br>
-		<input type="submit" value="Agregar Datos" name="alta">
+		<input type="submit" value="Agregar Proyecto" name="alta">
 		<br>
 		<?php 
 		if(isset($_GET["e"])){
-			echo "<h2>Datos eliminados</h2>";
+			echo "<h2>Proyecto eliminado</h2>";
 		}
 		if(isset($_GET["i"])){
-			echo "<h2>Datos Agregados</h2>";
+			echo "<h2>Proyecto Agregado</h2>";
 		}
 
 		 ?>

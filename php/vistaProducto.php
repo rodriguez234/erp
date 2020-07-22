@@ -10,14 +10,14 @@
 		<a href="?sec=rpro"><input type="button" value="Generar Reporte"></a>
 	</div>
 	<form action="" method="post">
-		Nombre <input type="text" name="nombre"> <br>
-		Descripcion <input type="text" name="descripcion"> <br>
-		Preciov <input type="text" name="preciov"> <br>
-		Precioc <input type="text" name="precioc"> <br>
-		Cantidad <input type="text" name="cantidad"> <br>
-		Cantmin <input type="text" name="cantmin"> <br>
-		Cantmax <input type="text" name="cantmax"> <br>
-		Categoria <input type="text" name="categoria"> <br>
+		Nombre: <input type="text" name="nombre"> <br>
+		Descripcion: <input type="text" name="descripcion"> <br>
+		Precio de Venta: <input type="text" name="preciov"> <br>
+		Precio de Compra: <input type="text" name="precioc"> <br>
+		Cantidad: <input type="text" name="cantidad"> <br>
+		Cantidad Minima: <input type="text" name="cantmin"> <br>
+		Cantidad Máxima: <input type="text" name="cantmax"> <br>
+		Categoria: <input type="text" name="categoria"> <br>
 		</select> <br>
 		<input type="submit" value="Agregar Datos" name="alta">
 		<br>

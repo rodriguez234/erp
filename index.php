@@ -32,6 +32,7 @@
 			<a href="?sec=usu"><li>Usuario</li></a>
 			<a href="?sec=ven"><li>Venta</li></a>
 		</ul>
+	</ul>
 	</nav>
 	<?php
 

@@ -5,11 +5,19 @@
 <section id="principal">
 
 	<form action="" method="post">
-		fecha: <input type="date" name="fecha"> <br>
-		cantidad: <input type="int" name="cantidad"> <br>
-		descripcion: <input type="text" name="descripcion"> <br>
-		IDproducto: <input type="text" name="IDproducto"> <br>
-		<input type="submit" value="Agregar Usuario" name="alta">
+		Fecha: <input type="date" name="fecha"> <br>
+		Cantidad: <input type="int" name="cantidad"> <br>
+		Descripcion: <input type="text" name="descripcion"> <br>
+		Producto: <input type="text" name="IDproducto"> <br>
+		<input type="submit" value="Agregar Devolucion" name="alta">
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Devolucion eliminada</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Devolucion Agregada</h2>";
+		}
+		?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -20,7 +28,7 @@
 			
 			
 			$obj->alta($fecha,$cantidad,$descripcion,$IDproducto);
-			echo "<h2>Usuario agregado</h2>";
+			echo "<h2>Devolucion agregada</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -28,11 +36,11 @@
 
 	<table>
 		<tr>
-			<th>fecha</th>
+			<th>Fecha</th>
 			<th>cantidad</th>
 			<th>descripcion</th>
 			<th>IDproducto</th>
-			
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -41,11 +49,28 @@
                 echo "<td>".$fila["cantidad"]."</td>";
                 echo "<td>".$fila["descripcion"]."</td>";
                 echo "<td>".$fila["IDproducto"]."</td>";
-                
+                 ?>
+                 <td>
+		        	
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDdevoluciones']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
+
 			}
 		 ?>
 	</table>
+<?php 
+      if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=dev&e=1");
+		}
 
+	 ?>
 </section>
 
 

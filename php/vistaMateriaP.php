@@ -4,20 +4,20 @@
  ?>
 <section id="principal">
     <div>
-		<a href="?sec=gmat"><input type="button" value="Generar Gráfica"></a>
+		<a href="?sec=gmat"><input type="button" value="Generar Gráfica de Materiaprima"></a>
 	</div>
 	<div>
-		<a href="?sec=rmat"><input type="button" value="Generar Reporte"></a>
+		<a href="?sec=rmat"><input type="button" value="Generar Reporte de Materiaprima"></a>
 	</div>
 	<form action="" method="post">
-		Nombre <input type="text" name="Nombre"> <br>
-		Tipo <input type="text" name="Tipo"> <br>
-		Descripcion <input type="text" name="Descripcion"> <br>
-		Precio <input type="text" name="Precio"> <br>
-		Stock <input type="text" name="Stock"> <br>
-		Existencias <input type="text" name="Existencias"> <br>
+		Nombre: <input type="text" name="Nombre"> <br>
+		Tipo: <input type="text" name="Tipo"> <br>
+		Descripcion: <input type="text" name="Descripcion"> <br>
+		Precio: <input type="text" name="Precio"> <br>
+		Stock: <input type="text" name="Stock"> <br>
+		Existencias: <input type="text" name="Existencias"> <br>
 		</select> <br>
-		<input type="submit" value="Agregar Datos" name="alta">
+		<input type="submit" value="Agregar Materi Prima" name="alta">
 		<br>
 		<?php 
 		if(isset($_GET["e"])){

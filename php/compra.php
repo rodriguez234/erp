@@ -12,7 +12,7 @@ class compra extends conexion
 
 	}
 	public function consulta(){
-	$this->sentencia = "SELECT * FROM compra";
+	$this->sentencia = "SELECT c.nombre,c.apepaterno,c.apematerno, p.fecha,p.total,p.tipo_pago FROM compra  p, cliente c WHERE p.id_cliente=c.IDcliente";
 	return $this->obtenerSentencia();
 }
 
@@ -38,7 +38,15 @@ public function eliminar($id){
 		$this->sentencia = "DELETE FROM compra WHERE
 		IDcompra=$id";
 		$this->ejecutarSentencia();
-
+	}
+	public function obtenerCliente(){
+		$this-> sentencia = "SELECT IDcliente,nombre,apepaterno,apematerno FROM cliente ";
+		$res = $this->obtenerSentencia();
+		echo "<select name='cliente'>";
+		while($fila = $res->fetch_assoc()){
+			echo "<option value='".$fila["IDcliente"]."'> ".$fila["nombre"]." ".$fila["apepaterno"]." ".$fila["apematerno"]."</option>";
+		}
+		echo "</select>";
 	}
 }
 ?>

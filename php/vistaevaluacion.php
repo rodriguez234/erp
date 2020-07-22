@@ -5,19 +5,29 @@
 <section id="principal">
 
 	<form action="" method="post">
-		tipo : <input type="text" name="tipo"> <br>
-		pregunta 1 : <input type="text" name="pregunta1"> <br>
-		pregunta 2 : <input type="text" name="pregunta2"> <br>
-        pregunta 3 : <input type="text" name="pregunta3"> <br>
-		pregunta 4 : <input type="text" name="pregunta4"> <br>
-		pregunta 5 : <input type="text" name="pregunta5"> <br>
-		pregunta 6 : <input type="text" name="pregunta6"> <br>
-		pregunta 7 : <input type="text" name="pregunta7"> <br>
-		pregunta 8 : <input type="text" name="pregunta8"> <br>
-		pregunta 9 : <input type="text" name="pregunta9"> <br>
-		pregunta 10 : <input type="text" name="pregunta10"> <br>
+		Tipo : <input type="text" name="tipo"> <br>
+		P. 1 : <input type="text" name="pregunta1"> <br>
+		P. 2 : <input type="text" name="pregunta2"> <br>
+        P. 3 : <input type="text" name="pregunta3"> <br>
+		P. 4 : <input type="text" name="pregunta4"> <br>
+		P. 5 : <input type="text" name="pregunta5"> <br>
+		P. 6 : <input type="text" name="pregunta6"> <br>
+		P. 7 : <input type="text" name="pregunta7"> <br>
+		P. 8 : <input type="text" name="pregunta8"> <br>
+		P. 9 : <input type="text" name="pregunta9"> <br>
+		P. 10 : <input type="text" name="pregunta10"> <br>
 
-		<input type="submit" value="Agregar Usuario" name="alta">
+		<input type="submit" value="Agregar Evaluacion" name="alta">
+		<br>
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Evaluacion Eliminada</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Evaluacion Agregada</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -34,7 +44,7 @@
 			$pregunta10 = $_POST["pregunta10"];
 			
 			$obj->alta($tipo,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6,$pregunta7,$pregunta8,$pregunta9,$pregunta10);
-			echo "<h2>agregado</h2>";
+			echo "<h2>Evaluacion Agregada</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -42,17 +52,18 @@
 
 	<table>
 		<tr>
-			<th>tipo</th>
-			<th>pregunta1</th>
-			<th>pregunta2</th>
-			<th>pregunta3</th>
-			<th>pregunta4</th>
-			<th>pregunta5</th>
-			<th>pregunta6</th>
-			<th>pregunta7</th>
-			<th>pregunta8</th>
-			<th>pregunta9</th>
-			<th>pregunta10</th>
+			<th>Tipo</th>
+			<th>P. 1</th>
+			<th>P. 2</th>
+			<th>P. 3</th>
+			<th>P. 4</th>
+			<th>P. 5</th>
+			<th>P. 6</th>
+			<th>P. 7</th>
+			<th>P. 8</th>
+			<th>P. 9</th>
+			<th>P. 10</th>
+			<th>Eliminar</th>
 
 		</tr>
 		<?php 
@@ -70,9 +81,26 @@
 				echo "<td>".$fila["pregunta8"]."</td>";
 				echo "<td>".$fila["pregunta9"]."</td>";
 				echo "<td>".$fila["pregunta10"]."</td>";
-			}
 		 ?>
+		  <td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDevaluación']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
+			}
+			?>
 	</table>
+	<?php 
+      if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=eva&e=1");
+		}
+
+	 ?>
 
 </section>
 

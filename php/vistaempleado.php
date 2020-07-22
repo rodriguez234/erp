@@ -5,24 +5,32 @@
  ?>
 <section id="principal">
 <div>
-		<a href="?sec=remp"><input type="button" value="Generar Reporte"></a>
+		<a href="?sec=remp"><input type="button" value="Generar Reporte de Empleados"></a>
 	</div>
 	<form action="" method="post">
-		nombre: <input type="text" name="nombre"> <br>
-		appaterno: <input type="text" name="appaterno"> <br>
-		apmaterno: <input type="text" name="apmaterno"> <br>
-		correo: <input type="text" name="correo"> <br>
-		rfc: <input type="text" name="rfc"> <br>
-		telefono: <input type="text" name="telefono"> <br>
-		sexo: <input type="text" name="sexo"> <br>
-		fechadeingreso: <input type="date" name="fechadeingreso"> <br>
-	    cargo: <input type="text" name="cargo"> <br>
-		salario: <input type="text" name="salario"> <br>
-		estadocivil: <input type="text" name="estadocivil"> <br>
-		nss: <input type="text" name="nss"> <br>
-		
+		Nombre: <input type="text" name="nombre"> <br>
+		Apellido Paterno: <input type="text" name="appaterno"> <br>
+		Apellido Materno: <input type="text" name="apmaterno"> <br>
+		Correo: <input type="text" name="correo"> <br>
+		RFC: <input type="text" name="rfc"> <br>
+		Telefono: <input type="text" name="telefono"> <br>
+		Genero: <input type="text" name="sexo"> <br>
+		Fecha de Ingreso: <input type="date" name="fechadeingreso"> <br>
+	    Cargo: <input type="text" name="cargo"> <br>
+		Salario: <input type="text" name="salario"> <br>
+		Estado Civil: <input type="text" name="estadocivil"> <br>
+		NSS: <input type="text" name="nss"> <br>
 			</select> <br>
 		<input type="submit" value="Agregar Empleado" name="alta">
+<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Empleado Eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Empleado Agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -75,11 +83,28 @@
                 echo "<td>".$fila["salario"]."</td>";
                 echo "<td>".$fila["estadocivil"]."</td>";
                 echo "<td>".$fila["nss"]."</td>";
-				
+				 ?>
+		        <td>
+		        	
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDempleado']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
 			}
 		 ?>
+			
 	</table>
+<?php 
+      if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=emp&e=1");
+		}
 
+	 ?>
 </section>
 
 

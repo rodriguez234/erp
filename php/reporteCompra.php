@@ -12,18 +12,19 @@
 	$pdf->SetFont('Arial','B',7);
 	$ancho = 25;
 	$pdf->Cell($ancho,10,utf8_decode("Fecha"),1,0,"C");
+	$pdf->Cell($ancho,10,utf8_decode("Cliente"),1,0,"C");
 	$pdf->Cell($ancho,10,utf8_decode("Total"),1,0,"C");
 	$pdf->Cell($ancho,10,utf8_decode("Tipo de pago"),1,0,"C");
-	$pdf->Cell($ancho,10,utf8_decode("ID Cliente"),1,0,"C");
+	
 	
 	
 	$pdf->Ln(10);
 	$pdf->SetFont('Arial','',7);
 	while($fila = $res->fetch_assoc()){
 		$pdf->Cell($ancho,10,utf8_decode($fila["fecha"]),1,0,"C");
+		$pdf->Cell($ancho,10,utf8_decode($fila["nombre"]),1,0,"C");
 		$pdf->Cell($ancho,10,utf8_decode($fila["total"]),1,0,"C");
 		$pdf->Cell($ancho,10,utf8_decode($fila["tipo_pago"]),1,0,"C");
-		$pdf->Cell($ancho,10,utf8_decode($fila["id_cliente"]),1,0,"C");
 		
 	
 		$pdf->Ln(10);
